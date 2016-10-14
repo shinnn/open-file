@@ -25,8 +25,7 @@
     "asynchronous"
   ],
   "dependencies": {
-    "graceful-fs": "^4.1.9",
-    "pinkie-promise": "^2.0.1"
+    "graceful-fs": "^4.1.9"
   },
   "devDependencies": {
     "@shinnn/eslint-config-node-legacy": "^3.0.0",
