@@ -4,30 +4,30 @@
 */
 'use strict';
 
-var inspect = require('util').inspect;
+const inspect = require('util').inspect;
 
-var fs = require('graceful-fs');
+const fs = require('graceful-fs');
 
-var PATH_ERROR = 'Expected a file path (string) to open and resolve its file descriptor';
-var FLAG_ERROR = 'Expected valid file open flag, for example \'r\' & \'ax+\'';
+const PATH_ERROR = 'Expected a file path (string) to open and resolve its file descriptor';
+const FLAG_ERROR = 'Expected valid file open flag, for example \'r\' & \'ax+\'';
 
 module.exports = function openFile(filePath, flags, mode) {
   if (typeof filePath !== 'string') {
-    return Promise.reject(new TypeError(PATH_ERROR + ', but got ' + inspect(filePath) + '.'));
+    return Promise.reject(new TypeError(`${PATH_ERROR}, but got ${inspect(filePath)}.`));
   }
 
   if (filePath.length === 0) {
-    return Promise.reject(new Error(PATH_ERROR + ', but got an empty string.'));
+    return Promise.reject(new Error(`${PATH_ERROR}, but got an empty string.`));
   }
 
-  var typeOfFlags = typeof flags;
+  const typeOfFlags = typeof flags;
 
   if (typeOfFlags !== 'string' && typeOfFlags !== 'number') {
-    return Promise.reject(new TypeError(FLAG_ERROR + ', but got ' + inspect(flags) + '.'));
+    return Promise.reject(new TypeError(`${FLAG_ERROR}, but got ${inspect(flags)}.`));
   }
 
   if (flags === '') {
-    return Promise.reject(new Error(FLAG_ERROR + ', but got an empty string.'));
+    return Promise.reject(new Error(`${FLAG_ERROR}, but got an empty string.`));
   }
 
   return new Promise((resolve, reject) => {
