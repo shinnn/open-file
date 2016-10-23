@@ -17,7 +17,7 @@ module.exports = function openFile(filePath, flags, mode) {
   }
 
   if (filePath.length === 0) {
-    return Promise.reject(new Error(`${PATH_ERROR}, but got an empty string.`));
+    return Promise.reject(new Error(`${PATH_ERROR.replace(' (string)', '')}, but got '' (empty string).`));
   }
 
   const typeOfFlags = typeof flags;
@@ -27,7 +27,7 @@ module.exports = function openFile(filePath, flags, mode) {
   }
 
   if (flags === '') {
-    return Promise.reject(new Error(`${FLAG_ERROR}, but got an empty string.`));
+    return Promise.reject(new Error(`${FLAG_ERROR}, but got '' (empty string).`));
   }
 
   return new Promise((resolve, reject) => {

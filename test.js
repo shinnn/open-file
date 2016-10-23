@@ -22,7 +22,7 @@ test('openFile()', t => {
   openFile('', 'wx').then(t.fail, err => {
     t.strictEqual(
       err.message,
-      'Expected a file path (string) to open and resolve its file descriptor, but got an empty string.',
+      'Expected a file path to open and resolve its file descriptor, but got \'\' (empty string).',
       'should fail when the first argument is an empty string.'
     );
   });
@@ -46,7 +46,7 @@ test('openFile()', t => {
   openFile(__filename, '').then(t.fail, err => {
     t.strictEqual(
       err.message,
-      'Expected valid file open flag, for example \'r\' & \'ax+\', but got an empty string.',
+      'Expected valid file open flag, for example \'r\' & \'ax+\', but got \'\' (empty string).',
       'should fail when the second argument is an empty string.'
     );
   });
