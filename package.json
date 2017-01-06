@@ -5,7 +5,7 @@
   "repository": "shinnn/open-file",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
   "scripts": {
-    "pretest": "eslint --fix index.js test.js",
+    "pretest": "eslint --fix --format=codeframe index.js test.js",
     "test": "node --throw-deprecation --track-heap-objects test.js",
     "coverage": "istanbul cover test.js"
   },
@@ -25,13 +25,13 @@
     "asynchronous"
   ],
   "dependencies": {
-    "graceful-fs": "^4.1.9"
+    "graceful-fs": "^4.1.11"
   },
   "devDependencies": {
     "@shinnn/eslint-config-node": "^3.0.0",
-    "eslint": "^3.8.1",
+    "eslint": "^3.12.2",
     "istanbul": "^0.4.5",
-    "tape": "^4.6.2"
+    "tape": "^4.6.3"
   },
   "eslintConfig": {
     "extends": "@shinnn/node"
