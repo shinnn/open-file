@@ -44,6 +44,6 @@ Almost the same function as [`fs.open`](https://nodejs.org/api/fs.html#fs_fs_ope
 
 ## License
 
-Copyright (c) 2016 [Shinnosuke Watanabe](https://github.com/shinnn)
+Copyright (c) 2016 - 2017 [Shinnosuke Watanabe](https://github.com/shinnn)
 
 Licensed under [the MIT License](./LICENSE).
