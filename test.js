@@ -4,12 +4,30 @@ const openFile = require('.');
 const test = require('tape');
 
 test('openFile()', t => {
-  t.plan(8);
+  t.plan(10);
 
   openFile(__filename, 'r').then(fd => {
     t.ok(Number.isSafeInteger(fd), 'should resolve with a file descriptor.');
   })
   .catch(t.fail);
+
+  openFile().then(t.fail, err => {
+    t.strictEqual(
+      err.message,
+      'Expected 2 or 3 arguments (path: <string>, flags: <string> | <integer>[, mode: <integer>]), ' +
+      'but got no arguments.',
+      'should fail when it takes no arguments.'
+    );
+  });
+
+  openFile('0', 1, 2, 3).then(t.fail, err => {
+    t.strictEqual(
+      err.message,
+      'Expected 2 or 3 arguments (path: <string>, flags: <string> | <integer>[, mode: <integer>]), ' +
+      'but got 4 arguments.',
+      'should fail when it takes too many arguments.'
+    );
+  });
 
   openFile(Buffer.from('Hi'), 'w').then(t.fail, err => {
     t.strictEqual(
