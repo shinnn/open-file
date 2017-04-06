@@ -56,7 +56,7 @@ test('openFile()', t => {
   openFile(__filename, ['foo']).then(t.fail, err => {
     t.strictEqual(
       err.message,
-      'Expected valid file open flag, for example \'r\' & \'ax+\', but got [ \'foo\' ].',
+      'Expected valid file open flag, for example \'r\' & \'ax+\', but got [ \'foo\' ] (array).',
       'should fail when it takes invalid type flags.'
     );
   });

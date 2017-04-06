@@ -4,9 +4,8 @@
 */
 'use strict';
 
-const {inspect} = require('util');
-
 const fsOpen = require('graceful-fs').open;
+const inspectWithKind = require('inspect-with-kind');
 
 const PATH_ERROR = 'Expected a file path (string) to open and resolve its file descriptor';
 const FLAG_ERROR = 'Expected valid file open flag, for example \'r\' & \'ax+\'';
@@ -24,7 +23,7 @@ module.exports = function openFile(...args) {
     const [filePath, flags] = args;
 
     if (typeof filePath !== 'string') {
-      throw new TypeError(`${PATH_ERROR}, but got ${inspect(filePath)}.`);
+      throw new TypeError(`${PATH_ERROR}, but got ${inspectWithKind(filePath)}.`);
     }
 
     if (filePath.length === 0) {
@@ -34,7 +33,7 @@ module.exports = function openFile(...args) {
     const typeOfFlags = typeof flags;
 
     if (typeOfFlags !== 'string' && typeOfFlags !== 'number') {
-      throw new TypeError(`${FLAG_ERROR}, but got ${inspect(flags)}.`);
+      throw new TypeError(`${FLAG_ERROR}, but got ${inspectWithKind(flags)}.`);
     }
 
     if (flags === '') {

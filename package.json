@@ -25,7 +25,8 @@
     "asynchronous"
   ],
   "dependencies": {
-    "graceful-fs": "^4.1.11"
+    "graceful-fs": "^4.1.11",
+    "inspect-with-kind": "^1.0.0"
   },
   "devDependencies": {
     "@shinnn/eslint-config-node": "^3.0.0",
