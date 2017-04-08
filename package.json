@@ -1,6 +1,6 @@
 {
   "name": "open-file",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Open a file with resolving its file descriptor",
   "repository": "shinnn/open-file",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
